@@ -10,9 +10,9 @@ import (
     "encoding/json"
 )
 
-var countWords = make(map[string]int)
-var countLetters = make(map[string]int)
-var countTotal uint32 = 0
+var countWords = make(map[string]uint64)
+var countLetters = make(map[string]uint64)
+var countTotal uint64 = 0
 var countRWLock sync.RWMutex
 
 func main() {
@@ -49,7 +49,7 @@ func handleHttpStat(w http.ResponseWriter, r *http.Request) {
 }
 
 func incCount(word string) {
-    countTotal = atomic.AddUint32(&countTotal, 1)
+    countTotal = atomic.AddUint64(&countTotal, 1)
 
     countRWLock.Lock()
     defer countRWLock.Unlock()

@@ -2,7 +2,7 @@ package main
 import "sort"
 
 type sortedMap struct {
-    m map[string]int
+    m map[string]uint64
     s []string
 }
 
@@ -18,7 +18,7 @@ func (sm *sortedMap) Swap(i, j int) {
     sm.s[i], sm.s[j] = sm.s[j], sm.s[i]
 }
 
-func sortedKeys(m map[string]int) []string {
+func sortedKeys(m map[string]uint64) []string {
     sm := new(sortedMap)
     sm.m = m
     sm.s = make([]string, len(m))

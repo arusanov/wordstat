@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestSortedKeys(t *testing.T) {
-    toSort := map[string]int{
+    toSort := map[string]uint64{
         "two":50,
         "three":0,
         "one":100,
